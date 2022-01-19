@@ -8,7 +8,7 @@
 
 </div>
 
-***
+<br/>
 
 <p>Repositório de atividades desenvolvidas durante o treinamento de estágio da start-up Quiq na plataforma Alura.<p>
 
