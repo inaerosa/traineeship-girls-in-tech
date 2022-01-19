@@ -1,11 +1,14 @@
 # Traineeship Girls In Tech
 
-<div align="center>
+<div align="center">
+
 <img alt="Repository size" src="https://img.shields.io/github/repo-size/inaerosa/traineeship-girls-in-tech?color=%23DB5800">
 
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/inaerosa/traineeship-girls-in-tech?color=%23DB5800">
 
 </div>
+
+***
 
 <p>Repositório de atividades desenvolvidas durante o treinamento de estágio da start-up Quiq na plataforma Alura.<p>
 
