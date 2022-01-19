@@ -1,8 +1,10 @@
 # Traineeship Girls In Tech
 
-<div align="center">
-<img alt="Repository size" src="https://img.shields.io/github/languages/code-size/inaerosa/traineeship-girls-in-tech?color=DB5800">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/inaerosa/traineeship-girls-in-tech?color=DB5800">
+<div align="center>
+<img alt="Repository size" src="https://img.shields.io/github/repo-size/inaerosa/traineeship-girls-in-tech?color=%23DB5800">
+
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/inaerosa/traineeship-girls-in-tech?color=%23DB5800">
+
 </div>
 
 <p>Repositório de atividades desenvolvidas durante o treinamento de estágio da start-up Quiq na plataforma Alura.<p>
@@ -27,7 +29,7 @@ Durante o módulo 4, serão implementados padrões de projeto, como também apre
 Por último, no módulo 5, serão construídas aplicações Serveless, autenticações e manipulação na nuvem.
 
 
-## Módulo 01
+## Módulo 00
 ```json 
     {
         "dataEntrega": "21/02/22",
