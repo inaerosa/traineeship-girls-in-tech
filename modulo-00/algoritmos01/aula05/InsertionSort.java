@@ -66,7 +66,7 @@ public class InsertionSort {
                              + " é o mais barato, e custa "
                              + produtos[maisBarato].getPreco());
 
-//      selectionSort(produtos, produtos.length);
+        selectionSort(produtos, produtos.length);
         insertionSort(produtos, produtos.length);     
     }
     
