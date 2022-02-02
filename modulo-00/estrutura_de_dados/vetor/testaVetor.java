@@ -1,3 +1,5 @@
+package vetor;
+
 public class testaVetor {
     public static void main(String[] args){
         Aluno a1 = new Aluno ("Joao");
