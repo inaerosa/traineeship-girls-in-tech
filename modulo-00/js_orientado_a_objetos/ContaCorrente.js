@@ -15,4 +15,9 @@ export class ContaCorrente{
         if (valor < 0) return;         
         this._saldo += valor;
     }
+
+    transferir(valor, conta){
+        const valor_sacado = this.sacar(valor);
+        conta.depositar(valor_sacado);
+    }
 }
