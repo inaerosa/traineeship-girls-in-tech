@@ -7,7 +7,7 @@ cliente1.cpf = 123455;
 
 const cliente2 = new Cliente();
 cliente2.nome = "Alice";
-cliente2.cpf = 454687431;
+cliente2.cpf = 454687431 ;
 
 const contaCorrenteRicardo = new ContaCorrente();
 contaCorrenteRicardo.agencia = 1001;
@@ -20,4 +20,4 @@ conta2.agencia = 102;
 
 contaCorrenteRicardo.transferir(200, conta2);
 
-console.log(conta2)
+console.log(conta2.saldo)
