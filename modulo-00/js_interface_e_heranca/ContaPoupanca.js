@@ -1,7 +1,7 @@
-export class ContaPoupanca {
-    constructor(saldo_inicial, cliente, agencia){
-        this._saldo = saldo_inicial;
-        this._cliente = cliente;
-        this._agencia = agencia;
+import { Conta } from "./Conta.js"
+
+export class ContaPoupanca extends Conta {
+    constructor(saldoInicial, cliente, agencia){
+        super(saldoInicial, cliente, agencia);
     }
 }

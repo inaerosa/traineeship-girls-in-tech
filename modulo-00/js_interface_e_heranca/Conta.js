@@ -5,11 +5,36 @@ export class Conta{
         this._agencia = agencia;
     }
 
-    sacar(valor){
-        if (this._saldo >= valor){
-            this._saldo -= valor;
-            return valor;
+    set cliente(nome){
+        if (nome instanceof Cliente){
+            this._cliente = nome;
         }
+    }
+
+    get cliente(){
+        return this._cliente;
+    }
+
+    get saldo(){
+        return this._saldo;
+    }
+
+    get tipo(){
+        return this._tipo;
+    }
+
+    sacar(valor){
+        let taxa = 1;
+        return this._sacar(valor, taxa);
+    }
+
+    _sacar(valor, taxa){
+        const valor_sacado = taxa*valor;
+        if (this._saldo >= valor_sacado){
+            this._saldo -= valor_sacado;
+            return valor_sacado;
+        }
+        return 0;
     }
 
     depositar(valor){
