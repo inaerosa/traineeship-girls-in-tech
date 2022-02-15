@@ -36,7 +36,7 @@ Por último, no módulo 5, serão construídas aplicações Serveless, autentica
 ```json 
     {
         "dataEntrega": "21/02/22",
-        "status": "Em desenvolvimento",
+        "status": "Concluído",
         "linguaguens": [{
             "Java",
             "Javascript"
