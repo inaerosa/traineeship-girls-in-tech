@@ -6,8 +6,9 @@ let isClient = false;
 let client_name;
 
 function register_client(){
-    client_name = readlineSync.question('Hey, whats your name?')
-    const phone = readlineSync.question(`${client_name}, whats your phone number?`)
+    console.log(`\n\n------------------REGISTER OF CLIENTS------------------------\n`)
+    client_name = readlineSync.question('Whats your name?')
+    const phone = readlineSync.question(`${client_name}, and your phone number?`)
     isClient = true;
     console.log(`Thanks, you are now our client!`)
 }
@@ -31,9 +32,11 @@ function rent_movie(interessed_movie){
     }
 }
 
-let visit_name = console.log('Hey, i have notticed you have some interessed in movies, maybe you want see someone that i have in my estableshment. First time in here? Lets make your register')
+
+let visit_name = readlineSync.question('Whats up, interessed in watch some movies? \nPlease, say your name: ')
+
 if (visit_name != client_name){
-    console.log('Wait, i guess u dont have a register, lets make this?')
+    console.log('\n \nWait, i guess u dont have a register, lets make this?')
     register_client();
 }
 
@@ -42,4 +45,3 @@ console.log(disponible_movies())
 
 let interessed_movie = readlineSync.question('Which movie you have interessed?')
 rent_movie(interessed_movie);
-console.log('\n----------------------------------------------------------')
