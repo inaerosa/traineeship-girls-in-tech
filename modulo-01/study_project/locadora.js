@@ -12,23 +12,28 @@ function register_client(){
     console.log(`Thanks, you are now our client!`)
 }
 
+const disponible_movies = () => {
+    for (let i = 0; i < movie_list.length; i++){
+        if (unavailable_movies.includes(movie_list[i])){
+           movie_list.splice(i,1)
+        }
+    }
+    return movie_list
+}
+
 let visit_name = console.log('Hey, i have notticed you have some interessed in movies, maybe you want see someone that i have in my estableshment. First time in here? Lets make your register')
 if (visit_name != client_name){
     console.log('Wait, i guess u dont have a register, lets make this?')
     register_client();
 }
 
-console.log('Nice, now you can see which movies i have disponible')
+console.log('\n---------------------MY MOVIE LIST------------------------\n')
+console.log(disponible_movies())
 
 if (isClient && !unavailable_movies.includes(movie)){
     console.log(`Great news, ${client_name}, you rented the movie '${movie}', please comeback in three days`)
     unavailable_movies.push(movie)
 } else {
     console.log(`Oh no :c, ${movie} has been rented, maybe you have interessed in another titles? `)
-    for (let i = 0; i < movie_list.length; i++){
-        if (unavailable_movies.includes(movie_list[i])){
-           movie_list.splice(i,1)
-        }
-    }
-    console.log(movie_list)
+    console.log(disponible_movies())
 }
