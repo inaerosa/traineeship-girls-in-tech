@@ -23,7 +23,7 @@ const disponible_movies = () => {
 }
 
 function rent_movie(interessed_movie){
-    if (isClient && !unavailable_movies.includes(interessed_movie)){
+    if (isClient && !unavailable_movies.includes(interessed_movie) && movie_list.includes(interessed_movie)){
         console.log(`Great news, ${client_name}, you rented the movie '${interessed_movie}', please comeback in three days`)
         unavailable_movies.push(interessed_movie)
     } else {
