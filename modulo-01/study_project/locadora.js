@@ -21,6 +21,16 @@ const disponible_movies = () => {
     return movie_list
 }
 
+function rent_movie(interessed_movie){
+    if (isClient && !unavailable_movies.includes(interessed_movie)){
+        console.log(`Great news, ${client_name}, you rented the movie '${interessed_movie}', please comeback in three days`)
+        unavailable_movies.push(interessed_movie)
+    } else {
+        console.log(`Oh no :c, ${interessed_movie} has been rented, maybe you have interessed in another titles? `)
+        console.log(disponible_movies());
+    }
+}
+
 let visit_name = console.log('Hey, i have notticed you have some interessed in movies, maybe you want see someone that i have in my estableshment. First time in here? Lets make your register')
 if (visit_name != client_name){
     console.log('Wait, i guess u dont have a register, lets make this?')
@@ -30,10 +40,6 @@ if (visit_name != client_name){
 console.log('\n---------------------MY MOVIE LIST------------------------\n')
 console.log(disponible_movies())
 
-if (isClient && !unavailable_movies.includes(movie)){
-    console.log(`Great news, ${client_name}, you rented the movie '${movie}', please comeback in three days`)
-    unavailable_movies.push(movie)
-} else {
-    console.log(`Oh no :c, ${movie} has been rented, maybe you have interessed in another titles? `)
-    console.log(disponible_movies())
-}
+let interessed_movie = readlineSync.question('Which movie you have interessed?')
+rent_movie(interessed_movie);
+console.log('\n----------------------------------------------------------')
