@@ -11,6 +11,15 @@ function register_client(){
     console.log(`Thanks, you are now our client!`)
 }
 
+let visit_name = console.log('Hey, i have notticed you have some interessed in movies, maybe you want see someone that i have in my estableshment. Whats your name? ')
+if (visit_name != client_name){
+    console.log('Wait, i guess u dont have a register, lets make this?')
+    register_client();
+}
+
+console.log('Nice, now you can see which movies i have disponible')
+
+
 if (isClient && !unavailable_movies.includes(movie)){
     console.log(`Great news, ${client_name}, you rented the movie '${movie}', please comeback in three days`)
     unavailable_movies.push(movie)
