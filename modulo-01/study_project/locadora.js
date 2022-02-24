@@ -1,7 +1,7 @@
 var readlineSync = require('readline-sync')
 
 const movie_list = ['Twister', 'The Lost World: Jurassic Park', 'The Perks of Being a Wallflower']
-const unavailable_movies = ['Twister']
+const unavailable_movies = ['The Lost World: Jurassic Park']
 let isClient = false;
 let client_name;
 
