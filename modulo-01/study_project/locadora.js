@@ -1,13 +1,18 @@
+var readlineSync = require('readline-sync')
+
 const movie_list = ['Twister', 'The Lost World: Jurassic Park', 'The Perks of Being a Wallflower']
-
-let register_client = true
-const client = 'Inaê'
-let movie = 'The Lost World: Jurassic Park'
-
 const unavailable_movies = ['Twister']
+let isClient = false;
 
-if (register_client && !unavailable_movies.includes(movie)){
-    console.log(`Great news, ${client}, you rented the movie '${movie}', please comeback in three days`)
+function register_client(){
+    const client_name = readlineSync.question('Hey, whats your name?')
+    const phone = readlineSync.question(`${client_name}, whats your phone number?`)
+    isClient = true;
+    console.log(`Thanks, you are now our client!`)
+}
+
+if (isClient && !unavailable_movies.includes(movie)){
+    console.log(`Great news, ${client_name}, you rented the movie '${movie}', please comeback in three days`)
     unavailable_movies.push(movie)
 } else {
     console.log(`Oh no :c, ${movie} has been rented, maybe you have interessed in another titles? `)
@@ -18,11 +23,3 @@ if (register_client && !unavailable_movies.includes(movie)){
     }
     console.log(movie_list)
 }
-
-
-
-
-
-
-
-
