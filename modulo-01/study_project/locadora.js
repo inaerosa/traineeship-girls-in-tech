@@ -29,9 +29,14 @@ function rent_movie(interessed_movie){
     } else {
         console.log(`Oh no :c, ${interessed_movie} has been rented, maybe you have interessed in another titles? `)
         console.log(disponible_movies());
+        let answer = readlineSync.question('Something? ')    
+        validation_anwser(answer.toLowerCase())   
     }
 }
 
+function validation_anwser (answer){
+    answer === 'no' ? 'break' : rent_movie(answer)
+}
 
 let visit_name = readlineSync.question('Whats up, interessed in watch some movies? \nPlease, say your name: ')
 
