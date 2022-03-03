@@ -14,12 +14,12 @@ function register_client(){
 }
 
 const disponible_movies = () => {
-    for (let i = 0; i < movie_list.length; i++){
-        if (unavailable_movies.includes(movie_list[i])){
-           movie_list.splice(i,1)
-        }
-    }
-    return movie_list
+    movie_list.map(movie => {
+        if (unavailable_movies.includes(movie)){
+            movie_list.splice(movie_list.indexOf(movie),1)
+         }
+    })
+    return movie_list;
 }
 
 function rent_movie(interessed_movie){
