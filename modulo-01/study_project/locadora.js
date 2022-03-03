@@ -1,7 +1,7 @@
 var readlineSync = require('readline-sync')
 
-const movie_list = ['Twister', 'The Lost World: Jurassic Park', 'The Perks of Being a Wallflower']
-const unavailable_movies = ['The Lost World: Jurassic Park']
+const movie_list = ['twister', 'the lost world: jurassic park', 'the perks of being a wallflower']
+const unavailable_movies = ['the lost world: jurassic park']
 let isClient = false;
 let client_name;
 
@@ -48,5 +48,5 @@ if (visit_name != client_name){
 console.log('\n---------------------MY MOVIE LIST------------------------\n')
 console.log(disponible_movies())
 
-let interessed_movie = readlineSync.question('Which movie you have interessed?')
-rent_movie(interessed_movie);
+let interessed_movie = readlineSync.question('Which movie you have interessed? ')
+rent_movie(interessed_movie.toLowerCase());
