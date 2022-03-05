@@ -1,4 +1,5 @@
 var readlineSync = require('readline-sync')
+import { Client } from './Client.js'
 
 const movie_list = ['twister', 'the lost world: jurassic park', 'the perks of being a wallflower']
 const unavailable_movies = ['the lost world: jurassic park']
@@ -8,7 +9,9 @@ let client_name;
 function register_client(){
     console.log(`\n\n------------------REGISTER OF CLIENTS------------------------\n`)
     client_name = readlineSync.question('Whats your name?')
-    const phone = readlineSync.question(`${client_name}, and your phone number?`)
+    const phone = readlineSync.question(`${client_name}, and your phone number? `)
+    const email = readlineSync.question(`And whats your email? `)
+    let client = new Client(client_name, phone, email)
     isClient = true;
     console.log(`Thanks, you are now our client!`)
 }
