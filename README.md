@@ -48,6 +48,14 @@ Por último, no módulo 5, serão construídas aplicações Serveless, autentica
     }
 ```
 
+## Módulo 02
+```json 
+    {
+        "dataEntrega": "11/04/22",
+        "status": "Em andamento",
+    }
+```
+
 
 
 
