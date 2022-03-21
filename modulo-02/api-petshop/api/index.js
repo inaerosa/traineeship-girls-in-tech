@@ -6,6 +6,6 @@ const roteador = require('./rotas/fornecedores')
 
 app.use(bodyParser.json())
 
-app.use('/api/fornecedores', roteador)
+app.get('/api/fornecedores', roteador)
 
-app.listen(config.get('api.porta'), () => console.log('A API está funcionando'))
+app.listen(3000, () => console.log('A API está funcionando'))
