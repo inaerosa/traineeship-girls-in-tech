@@ -14,11 +14,13 @@ roteador.get('/', async (req, res) => {
 
 roteador.post('/', async (req, res, next) => {
     try{
-        const dadosRecebidos = req.body;
+        const dadosRecebidos = req.body
         const fornecedor = new Fornecedor(dadosRecebidos)
         await fornecedor.criar()
         res.status(201)
-        const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'))
+        const serializador = new SerializadorFornecedor(
+            res.getHeader('Content-Type')
+        )
         res.send(
             serializador.serializar(fornecedor)
         )

@@ -17,7 +17,6 @@ app.use((req, res, next) => {
     if(formatoRequisitado === '*/*'){
         formatoRequisitado = 'application/json'
     }
-    
     if (formatosAceitos.indexOf(formatoRequisitado) === -1){
         res.status(406)
         res.end()
