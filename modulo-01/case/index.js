@@ -7,6 +7,7 @@ data.forEach(pedido => {
 })
 
 organize(/item.+/);
+organize(/cart.+/);
 
 console.log(newObj)
 
@@ -27,8 +28,25 @@ function organize(type){
             if(key.includes("totalPrice")){
                totalPrice(newObj)
             }
+            if(key.includes("subtotal")){
+                subTotal(newObj)
+            }
+            if(key.toString() === "total"){
+                total(newObj)
+            }
         }
     }
+}
+
+function details_price(){
+    const objItem = newObj.item
+
+    let discount = objItem.discount
+    let totalPrice = objItem.totalPrice
+    let quantity = objItem.quantity
+    let itens = [discount, totalPrice, quantity]
+
+    return itens
 }
 
 function totalPrice(obj){
@@ -38,3 +56,15 @@ function totalPrice(obj){
     field_item.totalPrice = totalPrice
     return totalPrice
 }  
+
+function subTotal(obj){
+    let field = obj.cart
+    field.subtotal = totalPrice(obj)
+}
+
+function total(obj){
+    const field = obj.cart
+    const item = details_price();
+    const finalTotal = item[1] - item[0]
+    field.total = finalTotal;
+}
