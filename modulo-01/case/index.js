@@ -7,7 +7,9 @@ data.forEach(pedido => {
 })
 
 organize(/item.+/);
+organize(/merchant.+/);
 organize(/cart.+/);
+organize(/customer.+/);
 
 console.log(newObj)
 
@@ -24,7 +26,15 @@ function organize(type){
         if (regexField.test(Object.keys(obj)[i])){
             let key = (Object.keys(obj)[i]).replace(`${name}_`,"");
             let value = Object.values(obj)[i]
-            newObj[name][key] = value
+            if(key.includes("address")){
+                if(!newObj[name]["address"]){
+                    newObj[name]["address"] = {}
+                }
+                let keyAddressFormated = key.replace("address_",'')
+                newObj[name]["address"][keyAddressFormated] = value;
+            } else{
+                newObj[name][key] = value
+            }
             if(key.includes("totalPrice")){
                totalPrice(newObj)
             }
