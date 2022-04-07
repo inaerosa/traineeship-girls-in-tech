@@ -1,4 +1,5 @@
 const data = require('./data.json')
+const fs = require('fs')
 var obj = new Object()
 var newObj = new Object();
 var array   = []
