@@ -6,8 +6,10 @@ data.forEach(pedido => {
     obj = pedido;
 })
 
-organize(/item.+/);
+organize(/item.+/)
 organize(/merchant.+/);
+organize(/cart.+/);
+organize(/payments.+/);
 organize(/customer.+/);
 
 function organize(type){
