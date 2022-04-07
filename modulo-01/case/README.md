@@ -17,8 +17,8 @@ Desta forma, cada atributo virou um objeto que contem suas próprias chaves e va
         "name:" "Handcrafted Soft Tuna"
     },
     "merchant": {
-        "id": 2,
-        "name": "blablaba"
+        "name": "Schamberger LLC",
+        "cnpj": "Davis, Stanton and Bogisich"
     }
 ```
 
@@ -52,4 +52,4 @@ Por último, mas não menos importante, o atributo Payments, no .json original �
                "totalInCash": 1234
             }
         }
-``
+```
