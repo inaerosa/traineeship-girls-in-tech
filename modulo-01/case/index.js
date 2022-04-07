@@ -1,16 +1,23 @@
 const data = require('./data.json')
 var obj = new Object()
 var newObj = new Object();
+var array   = []
 
 data.forEach(pedido => {
-    obj = pedido;
+    obj = pedido
+    organize(/item.+/)
+    organize(/merchant.+/);
+    organize(/cart.+/);
+    organize(/payments.+/);
+    if(newObj.payments.payment[1].method == "CASH"){
+        newObj.payments.payment[1].changeFor = newObj.payments.payment[1].value + 0.11;
+    }else {
+        newObj.payments.payment[1].changeFor = 0
+    }
+    change();
+    organize(/customer.+/);
+    array.push(JSON.parse(JSON.stringify(newObj)))    
 })
-
-organize(/item.+/)
-organize(/merchant.+/);
-organize(/cart.+/);
-organize(/payments.+/);
-organize(/customer.+/);
 
 function organize(type){
     let regexField = new RegExp(type)
