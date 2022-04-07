@@ -91,6 +91,8 @@ function totalPrice(obj){
     let field_item = obj.item
     const totalPrice = field_item.quantity * field_item.unitPrice
     field_item.totalPrice = totalPrice
+
+    return totalPrice
 }   
 
 function subTotal(obj){
