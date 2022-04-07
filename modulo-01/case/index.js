@@ -3,6 +3,16 @@ var obj = new Object()
 var newObj = new Object();
 var array   = []
 
+const JSONWrite = (filePath, data, encoding = 'utf-8') => {
+    const promiseCallback = (resolve, reject) => {
+        fs.writeFile(filePath, JSON.stringify(data, null, 2), encoding, (err) => {
+            if (err) return reject(err)
+            resolve(true)
+        })
+    }
+    return new Promise(promiseCallback)
+}
+
 data.forEach(pedido => {
     obj = pedido
     organize(/item.+/)
@@ -18,6 +28,8 @@ data.forEach(pedido => {
     organize(/customer.+/);
     array.push(JSON.parse(JSON.stringify(newObj)))    
 })
+
+JSONWrite('./output.json', array).then(console.log).catch(console.error)
 
 function organize(type){
     let regexField = new RegExp(type)
