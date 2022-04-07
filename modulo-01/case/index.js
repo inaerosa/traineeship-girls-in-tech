@@ -8,10 +8,7 @@ data.forEach(pedido => {
 
 organize(/item.+/);
 organize(/merchant.+/);
-organize(/cart.+/);
 organize(/customer.+/);
-
-console.log(newObj)
 
 function organize(type){
     let regexField = new RegExp(type)
@@ -64,7 +61,6 @@ function totalPrice(obj){
 
     const totalPrice = field_item.quantity * field_item.unitPrice
     field_item.totalPrice = totalPrice
-    return totalPrice
 }  
 
 function subTotal(obj){
