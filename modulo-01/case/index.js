@@ -18,33 +18,42 @@ function organize(type){
 
     let name = type.toString();
     name = name.replace(regexName, '')
- 
+    newObj[Object.keys(obj)[0]] = Object.values(obj)[0]
     newObj[name] = {}
-
+    
     for (let i = 0; i < Object.keys(obj).length; i++){
         if (regexField.test(Object.keys(obj)[i])){
             let key = (Object.keys(obj)[i]).replace(`${name}_`,"");
             let value = Object.values(obj)[i]
-            if(key.includes("address")){
-                if(!newObj[name]["address"]){
-                    newObj[name]["address"] = {}
-                }
+             if(key.includes("address")){
+                if(!newObj[name]["address"]) newObj[name]["address"] = {}
                 let keyAddressFormated = key.replace("address_",'')
                 newObj[name]["address"][keyAddressFormated] = value;
-            } else{
-                newObj[name][key] = value
-            }
-            if(key.includes("totalPrice")){
-               totalPrice(newObj)
-            }
-            if(key.includes("subtotal")){
-                subTotal(newObj)
-            }
-            if(key.toString() === "total"){
-                total(newObj)
-            }
-        }
-    }
+            } else if (key.includes("charges")){
+                if(!newObj[name]["charges"]) newObj[name]["charges"] = {}
+                let keyChargesFormated = key.replace("charges_",'')
+                newObj[name]["charges"][keyChargesFormated] = value;
+                if (keyChargesFormated.includes("totalDiscounts")) total_discounts(newObj)
+            } else if(key.includes("payment")){
+                if(!newObj[name]["payment"]) newObj[name]["payment"] = [{}, {}]
+                if(key.includes("1")){
+                    let keyPaymentsFormated = key.replace("payment[1]_", '')
+                    newObj[name]["payment"][0][keyPaymentsFormated] = value
+                } else if(key.includes("2")){
+                    let keyPaymentsFormated = key.replace("payment[2]_", '')
+                    newObj[name]["payment"][1][keyPaymentsFormated] = value
+                }
+            } else newObj[name][key] = value
+            if (key.includes("totalPrice")) totalPrice(newObj)
+            if (key.includes("subtotal") || key.includes("subTotal")) subTotal(newObj) 
+            if (key.includes("total")) total(newObj)
+            if (key.includes("totalDiscounts")) total_discounts(newObj)
+            if (key.includes("value")) value_(newObj) 
+            if (key.includes("totalInCash")) totalInCash(newObj)
+            if (key.includes("change")) change()
+            if (key.includes("method")) changeFor(newObj)
+        }         
+    } 
 }
 
 function details_price(){
