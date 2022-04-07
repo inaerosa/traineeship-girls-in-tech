@@ -138,7 +138,15 @@ function changeFor(obj){
 
 function totalInCash(obj){
     let payments = obj.payments.payment
-    let tot = payments[0]. value + payments[1].value;
+    const pay_1 = payments[0].method
+    const pay_2 = payments[1].method
+    let tot;
+
+    if (pay_1 == "CASH" && pay_2 == "CASH") tot = payments[0]. value + payments[1].value
+    else if (pay_1 == "CASH" && pay_2 !="CASH") tot = payments[0]. value
+    else if (pay_1 != "CASH" && pay_2 == "CASH") tot = payments[1]. value
+    else tot = 0
+
     newObj.payments.charges.totalInCash = tot;
 }
 

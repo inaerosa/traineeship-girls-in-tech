@@ -45,7 +45,7 @@
         "subTotal": 325.98,
         "total": 298.24,
         "totalDiscounts": 27.74,
-        "totalInCash": 298.24,
+        "totalInCash": 0,
         "change": 0
       }
     },
@@ -169,7 +169,7 @@
         "subTotal": 5453.83,
         "total": 5417.93,
         "totalDiscounts": 35.9,
-        "totalInCash": 5417.93,
+        "totalInCash": 1787.92,
         "change": 1787.99
       }
     },
@@ -231,7 +231,7 @@
         "subTotal": 3282.37,
         "total": 3252.48,
         "totalDiscounts": 29.89,
-        "totalInCash": 3252.4799999999996,
+        "totalInCash": 0,
         "change": 0
       }
     },
@@ -293,7 +293,7 @@
         "subTotal": 2798.962,
         "total": 2756.982,
         "totalDiscounts": 41.98,
-        "totalInCash": 2756.98,
+        "totalInCash": 0,
         "change": 0
       }
     },
