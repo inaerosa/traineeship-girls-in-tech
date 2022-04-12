@@ -21,7 +21,7 @@ data.forEach(pedido => {
     organize(/cart.+/);
     organize(/payments.+/);
     if(newObj.payments.payment[1].method == "CASH"){
-        newObj.payments.payment[1].changeFor = newObj.payments.payment[1].value + 0.11;
+        newObj.payments.payment[1].changeFor = newObj.payments.payment[1].value + (newObj.payments.payment[0]* 0.11);
     }else {
         newObj.payments.payment[1].changeFor = 0
     }
@@ -132,7 +132,7 @@ function value_(obj){
 
 function changeFor(obj){
     let obj_1 = obj.payments.payment[0];
-    if (obj_1.method == "CASH") obj_1.changeFor = newObj.payments.payment[0].value + 0.07;
+    if (obj_1.method == "CASH") obj_1.changeFor = newObj.payments.payment[0].value + (newObj.payments.payment[0]* 0.07);
     else obj_1.changeFor = 0;
 }
 
