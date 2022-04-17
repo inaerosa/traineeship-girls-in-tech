@@ -3,11 +3,19 @@ const TabelaFornecedor = require('./TabelaFornecedor')
 const Fornecedor = require('./Fornecedor')
 const SerializadorFornecedor = require('../../Serializador').SerializadorFornecedor
 
+roteador.options('/', (req, res) => {
+    res.set('Acess-Control-Allow-Methods', 'GET, POST')
+    res.set('Acess-Control-Allow-hEADERS', 'Content-Type')
+    res.status(204)
+    res.end()
+})
+
 roteador.get('/', async (requisicao, resposta) => {
     const resultados = await TabelaFornecedor.listar()
     resposta.status(200)
     const serializador = new SerializadorFornecedor(
-        resposta.getHeader('Content-Type')
+        resposta.getHeader('Content-Type'),
+        ['empresa']
     )
     resposta.send(
         serializador.serializar(resultados)
@@ -21,7 +29,8 @@ roteador.post('/', async (requisicao, resposta, proximo) => {
         await fornecedor.criar()
         resposta.status(201)
         const serializador = new SerializadorFornecedor(
-            resposta.getHeader('Content-Type')
+            resposta.getHeader('Content-Type'),
+            ['empresa']
         )
         resposta.send(
             serializador.serializar(fornecedor)
@@ -29,6 +38,14 @@ roteador.post('/', async (requisicao, resposta, proximo) => {
     } catch (erro) {
         proximo(erro)
     }
+})
+
+
+roteador.options('/:idFornecedor', (req, res) => {
+    res.set('Acess-Control-Allow-Methods', 'GET, PUT, DELETE')
+    res.set('Acess-Control-Allow-hEADERS', 'Content-Type')
+    res.status(204)
+    res.end()
 })
 
 roteador.get('/:idFornecedor', async (requisicao, resposta, proximo) => {
@@ -39,7 +56,7 @@ roteador.get('/:idFornecedor', async (requisicao, resposta, proximo) => {
         resposta.status(200)
         const serializador = new SerializadorFornecedor(
             resposta.getHeader('Content-Type'),
-            ['email', 'dataCriacao', 'dataAtualizacao', 'versao']
+            ['email', 'empresa', 'dataCriacao', 'dataAtualizacao', 'versao']
         )
         resposta.send(
             serializador.serializar(fornecedor)

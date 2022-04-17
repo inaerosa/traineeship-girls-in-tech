@@ -3,6 +3,13 @@ const Tabela = require('./TabelaProduto')
 const Produto = require('./Produto')
 const Serializador = require('../../../Serializador').SerializadorProduto
 
+roteador.options('/', (req, res) => {
+    res.set('Acess-Control-Allow-Methods', 'GET, POST')
+    res.set('Acess-Control-Allow-hEADERS', 'Content-Type')
+    res.status(204)
+    res.end()
+})
+
 roteador.get('/', async (req, res) => {
     const produtos = await Tabela.listar(req.fornecedor.id)
     const serializador = new Serializador(
@@ -34,9 +41,16 @@ roteador.post('/', async (req, res, next) => {
     }
 })
 
-roteador.delete('/:idProduto', async(req, res) => {
+roteador.options('/:id', (req, res) => {
+    res.set('Acess-Control-Allow-Methods', 'GET, DELETE, HEAD, PUT')
+    res.set('Acess-Control-Allow-hEADERS', 'Content-Type')
+    res.status(204)
+    res.end()
+})
+
+roteador.delete('/:id', async(req, res) => {
     const dados = {
-        id: req.params.idProduto,
+        id: req.params.id,
         fornecedor: req.fornecedor.id
     }
 
@@ -108,6 +122,13 @@ roteador.put('/:id', async(req, res, next) => {
     } catch(e){
         next(e)
     }
+})
+
+roteador.options('/:id/diminuir-estoque', (req, res) => {
+    res.set('Acess-Control-Allow-Methods', 'POST')
+    res.set('Acess-Control-Allow-hEADERS', 'Content-Type')
+    res.status(204)
+    res.end()
 })
 
 roteador.post('/:id/diminuir-estoque', async(req, res, next) => {
