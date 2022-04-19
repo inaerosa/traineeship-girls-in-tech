@@ -1,29 +1,27 @@
 const express = require('express')
 const app = express();
-const PORT = process.dotenv.PORT || 3000  
+const dotenv = require ('dotenv')
+dotenv.config();
 const data = require('./data.json')
+const PORT = process.env.PORT
+app.use(express.json())
 
-class Establishment {
-    constructor (name, opening_hours, latitude, longitude, avg_ticket, total_employees, region, status, matriz){
-        this.name = name,
-        this.opening_hours = opening_hours,
-        this.latitude = latitude,
-        this.longitude = longitude, 
-        this.avg_ticket = avg_ticket,
-        this.total_employees = total_employees,
-        this.region = region, 
-        this.status = status, 
-        this.matriz = matriz
-    }
-}
-
-const establishments = []
+const establishments = [data]
 
 app.get('/api', (req, res) => {
-    res.json(data)
+    res.json(establishments)
 })
 
+
 app.post('/api', (req, res) => {
+    try{
+        let establishment = req.body;
+        console.log(establishment)
+        establishments.push(establishment)
+        res.status(200).send(establishment)
+    } catch(err){
+        res.status(500).send({message: `${err.message} - Error to POST establhisment`})
+    }
 })
 
 app.put('/api/:id', (req, res) => {
