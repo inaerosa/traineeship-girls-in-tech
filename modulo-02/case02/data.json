@@ -1,0 +1,11 @@
+{
+    "name": "Outback Jundiai",
+    "endereco": "Rua pedro, 32, Jundiai/SP. 98089-589",
+    "horario_funcionamento": "SAbado, das 11h às 14h e das 17h às 02h00",
+    "matriz": "SteakHouse",
+    "localizacao_geo": {
+        "latitude": 21414,
+        "longitude": 9342
+    },
+    "ticket_medio": "R$2.199,00"
+}
