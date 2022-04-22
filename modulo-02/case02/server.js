@@ -6,6 +6,7 @@ const data = require('./data.json')
 const PORT = process.env.PORT
 app.use(express.json())
 let establishments = [data]
+const Exception = require('./errors/Exception')
 
 app.get('/api', (req, res) => {
     res.json(establishments)
@@ -41,6 +42,22 @@ app.post('/api', (req, res) => {
     }
 })
 
+app.put('/api/:id/status', (req, res) => {
+    try{
+        const {id} = req.params;
+        const index = establishments.findIndex(merchant => merchant.id == Number(id))
+        const {status} = req.body            
+        if(index == -1){
+            throw Exception.notFound('ID not found')
+        }
+        if (status != 'OPEN' && status != 'CLOSED'){
+            throw Exception.invalidData('Status must be OPEN or CLOSED')
+        }
+        return res.json(establishments[index].status = status)
+    } catch(err){
+        console.log(err)
+    }
+})
 
 app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
