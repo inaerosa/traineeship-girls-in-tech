@@ -1,11 +1,32 @@
 {
-    "name": "Outback Jundiai",
-    "endereco": "Rua pedro, 32, Jundiai/SP. 98089-589",
-    "horario_funcionamento": "SAbado, das 11h às 14h e das 17h às 02h00",
-    "matriz": "SteakHouse",
-    "localizacao_geo": {
-        "latitude": 21414,
-        "longitude": 9342
-    },
-    "ticket_medio": "R$2.199,00"
-}
+        "id": 1,
+        "name": "Outback Jundiaí",
+        "address": "Rua Pedro, 32, Jundiaí/SP. 98089-589",
+        "bussiness_hours": [
+            {   
+                "days": ["Sabado"],
+                "open_hour": "11",
+                "close_hour": "14"
+            }, {
+                "days": ["Sabado"],
+                "open_hour": "17",
+                "close_hour": "02"
+            }
+        ],
+        "branch": true,
+        "location": {
+            "latitude":21414,
+            "longitude":  9342
+        }, 
+        "status": "OPEN",
+        "serviceType": "DELIVERY",
+        "items": ["Cebola empanada", "Bebidas"],
+        "average_ticket": "R$2.199.00.058",
+        "messages": [{
+            "message": "blablabla",
+            "hour": "15h41 só que no formato ISO",
+            "day": "21/04/2022"
+        }]
+    }
+
+    
