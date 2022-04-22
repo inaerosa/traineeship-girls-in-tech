@@ -5,7 +5,7 @@ dotenv.config()
 const data = require('./data.json')
 const PORT = process.env.PORT
 app.use(express.json())
-let establishments = [data]
+let establishments = data
 const Exception = require('./errors/Exception')
 
 app.get('/api', (req, res) => {
@@ -56,6 +56,38 @@ app.put('/api/:id/status', (req, res) => {
         return res.json(establishments[index].status = status)
     } catch(err){
         console.log(err)
+    }
+})
+
+app.delete('/api/:id', (req, res) => {
+    try{
+        const {id} = req.params;
+        const index = establishments.findIndex(merchant => merchant.id == Number(id))
+        if (index == -1){
+           throw Exception.notFound('ID not found')
+        }
+        establishments.splice(index, 1);
+        return res.status(200).send({message: `Sucess to delete establishment`}) 
+    } catch(err){
+        return res.status(err.status).send({message: err.message})
+    }
+})
+
+app.post('/api/:id/send-message', (req, res) => {
+    try{
+        const {id} = req.params;
+        const {message} = req.body;
+        const index = establishments.findIndex(merchant => merchant.id == Number(id))
+        const merchant = establishments[index]
+        const branch = establishments.find(establhisment => establhisment.id == merchant.branchId)
+        const date = {
+            message,
+            date: new Date().toISOString()
+        }
+        branch.messages.push(date)
+        res.send(branch.messages)
+    }catch(err){
+        
     }
 })
 

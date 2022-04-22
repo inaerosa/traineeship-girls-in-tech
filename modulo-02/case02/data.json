@@ -1,4 +1,5 @@
-{
+[
+    {
         "id": 1,
         "name": "Outback Jundiaí",
         "address": "Rua Pedro, 32, Jundiaí/SP. 98089-589",
@@ -13,7 +14,7 @@
                 "close_hour": "02"
             }
         ],
-        "branch": true,
+        "branch": false,
         "location": {
             "latitude":21414,
             "longitude":  9342
@@ -26,7 +27,36 @@
             "message": "blablabla",
             "hour": "15h41 só que no formato ISO",
             "day": "21/04/2022"
-        }]
+        }],
+        "branchId": [2]
+    },
+    {
+        "id": 2,
+        "name": "Outback Max Ville",
+        "address": "Estrada das Oliveiras, 990, Extrema/MG. 37604-000",
+        "bussiness_hours": [
+            {   
+                "days": ["Sabado"],
+                "open_hour": "11",
+                "close_hour": "14"
+            }, {
+                "days": ["Sabado"],
+                "open_hour": "17",
+                "close_hour": "02"
+            }
+        ],
+        "branch": true,
+        "location": {
+            "latitude": 89734,
+            "longitude":  23724
+        }, 
+        "status": "OPEN",
+        "serviceType": "DELIVERY",
+        "items": ["Cebola empanada", "Bebidas"],
+        "average_ticket": "1.890.359.09378",
+        "messages": []
     }
+
+]
 
     
