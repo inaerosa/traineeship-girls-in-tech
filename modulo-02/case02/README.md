@@ -1,34 +1,55 @@
-- Estruturar o objeto de restaurante com seus campos básicos
-  - nome String
-  - horário de funcionamento - string
-  - localização
-    - latitude - int
-    - longitude - int
-  - ticket médio - float
-  - numero de funcionarios - int
-  - região - string
-  - status - boolean
-  - matriz - boolean
-  - notificações - array de objeto
-    - data - new date
-    - hora - date
-    - mensagem - string
+## 
+### 
+<h1 align="center">
+    ⚙️ Case 02
+</h1>
+<p align="center"> 🔥 Desenvolvimento de uma API para cadastro e comunicação entre estabelecimentos do tipo matriz e filial 🔥</p>
 
-- Campos especiais
-  - serviceType - array
-  - categoria de items - array
 
-- Regras de negocio
-  - categorias podem ser adicionadas ao longo da execução
-  - status vai ser um boolean que pode ser alterado
-  - somente matriz pode enviar mensagem
+**Status**
 
-- Notificações 
-    - Verifica se o id passado pertence a um restaurante matriz
-      - se sim
-        - envia mensagem contendo data e hora para os restaurantes
-        - restaurante recebe a mensagem e faz um push no array
+✅ Finalizada
 
-- Rotas 
-  - cadastrar restaurante (GET)
-    - app.get('/', (req, res)) 
+
+**Features** 
+
+- [x] CRUD de estabelecimentos
+- [x] Recebimento de mensagens
+- [x] Tratamento de dados via memória
+  
+<br/>
+
+  **Tecnologias** 
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+
+**Pré-requisitos**
+
+* [Git](https://git-scm.com)
+* [Node.js](https://nodejs.org/en/)
+* [VSCode](https://code.visualstudio.com/)
+
+**Funcionamento**
+
+```bash
+# Acesse a pasta do projeto no terminal/cmd
+$ cd case02
+
+# Vá para a pasta api
+$ cd api
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm run dev
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000/merchant>
+```
+
+<p align="center">
+Feito com 🧡 por Inaê Rosa
+</p>
