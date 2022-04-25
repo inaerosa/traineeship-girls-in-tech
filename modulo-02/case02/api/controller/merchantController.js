@@ -21,9 +21,12 @@ class merchantController{
         try{
             const {id} = req.params;
             const establhisment = establishments.find(establhisment => establhisment.id == id)
+            if (establhisment == undefined){
+                throw Exception.notFound('Establhisment not found')
+             }
             res.status(200).json(establhisment)
         } catch(err){
-            res.send(500).json(err.message)
+            res.send(err.status).json(err.message)
         }
     }
 
@@ -50,7 +53,7 @@ class merchantController{
             }
             return res.json(establishments[index].status = status)
         } catch(err){
-            console.log(err)
+            return res.status(err.status).send({message: err.message})
         }
     }
 
@@ -62,7 +65,7 @@ class merchantController{
                throw Exception.notFound('ID not found')
             }
             establishments.splice(index, 1);
-            return res.status(200).send({message: `Sucess to delete establishment`}) 
+            return res.status(200).send({message: `Success to delete establishment`}) 
         } catch(err){
             return res.status(err.status).send({message: err.message})
         }
@@ -73,16 +76,22 @@ class merchantController{
             const {id} = req.params;
             const {message} = req.body;
             const index = establishments.findIndex(merchant => merchant.id == Number(id))
+            if(index == -1){
+                throw Exception.notFound('ID not found')
+            }
             const merchant = establishments[index]
             const branch = establishments.find(establhisment => establhisment.id == merchant.branchId)
+            if (branch == undefined){
+                throw Exception.notFound('Establhisment not found')
+             }
             const date = {
                 message,
                 date: new Date().toISOString()
             }
             branch.messages.push(date)
-            res.send(branch.messages)
+            return res.status(200).json(branch.messages)
         }catch(err){
-            
+            return res.status(err.status).send({message: err.message})
         }
     }
 }
