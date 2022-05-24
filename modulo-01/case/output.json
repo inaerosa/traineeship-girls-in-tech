@@ -42,7 +42,7 @@
         }
       ],
       "charges": {
-        "subTotal": 325.98,
+        "subTotal": "[FUNCTION_HERE] soma dos itens sem descontos",
         "total": 298.24,
         "totalDiscounts": 27.74,
         "totalInCash": 0,
@@ -92,7 +92,7 @@
       "payment": [
         {
           "method": "CASH",
-          "changeFor": 290.31,
+          "changeFor": null,
           "code": "412",
           "value": 290.24
         },
@@ -100,15 +100,15 @@
           "value": 589.28,
           "method": "CASH",
           "code": "994",
-          "changeFor": 589.39
+          "changeFor": null
         }
       ],
       "charges": {
-        "subTotal": 923.772,
+        "subTotal": "[FUNCTION_HERE] soma dos itens sem descontos",
         "total": 879.522,
         "totalDiscounts": 44.25,
         "totalInCash": 879.52,
-        "change": 879.7
+        "change": null
       }
     },
     "customer": {
@@ -154,7 +154,7 @@
       "payment": [
         {
           "method": "CASH",
-          "changeFor": 1787.99,
+          "changeFor": null,
           "code": "994",
           "value": 1787.92
         },
@@ -166,11 +166,11 @@
         }
       ],
       "charges": {
-        "subTotal": 5453.83,
+        "subTotal": "[FUNCTION_HERE] soma dos itens sem descontos",
         "total": 5417.93,
         "totalDiscounts": 35.9,
         "totalInCash": 1787.92,
-        "change": 1787.99
+        "change": null
       }
     },
     "customer": {
@@ -228,7 +228,7 @@
         }
       ],
       "charges": {
-        "subTotal": 3282.37,
+        "subTotal": "[FUNCTION_HERE] soma dos itens sem descontos",
         "total": 3252.48,
         "totalDiscounts": 29.89,
         "totalInCash": 0,
@@ -290,7 +290,7 @@
         }
       ],
       "charges": {
-        "subTotal": 2798.962,
+        "subTotal": "[FUNCTION_HERE] soma dos itens sem descontos",
         "total": 2756.982,
         "totalDiscounts": 41.98,
         "totalInCash": 0,
